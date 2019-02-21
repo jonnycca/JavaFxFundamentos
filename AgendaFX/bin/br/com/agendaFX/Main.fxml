@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.cell.PropertyValueFactory ?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<!-- borderpane cria a janela com possibilidade de organização entre por 
+	exemplo, center, top, left, right -->
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.agendaFX.MainController">
+	<children>
+		<Pane prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #bbb;">
+			<children>
+				<Label layoutX="6.0" layoutY="1.0" text="Minha agenda">
+					<font>
+						<Font name="System Bold" size="18.0" />
+					</font>
+				</Label>
+			</children>
+		</Pane>
+		<Pane prefHeight="225.0" prefWidth="600.0" style="-fx-background-color: #eeeeee;">
+			<children>
+				<TableView fx:id="tableContatos" layoutX="7.0" layoutY="6.0" prefHeight="186.0" prefWidth="586.0">
+					<columns>
+						<TableColumn prefWidth="339.0" text="Nome">
+							<cellValueFactory>
+								<PropertyValueFactory property="nome" />
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn editable="false" prefWidth="98.0" text="Idade">
+							<cellValueFactory>
+								<PropertyValueFactory property="idade" />
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn editable="false" prefWidth="147.0" text="Telefone">
+							<cellValueFactory>
+								<PropertyValueFactory property="telefone" />
+							</cellValueFactory>
+						</TableColumn>
+					</columns>
+				</TableView>
+				<Button fx:id="botaoInserir" layoutX="7.0" layoutY="196.0" mnemonicParsing="false" onAction="#botaoInserir_Action" prefHeight="25.0" prefWidth="177.0" text="Incluir" />
+				<Button fx:id="botaoAlterar" layoutX="193.0" layoutY="196.0" mnemonicParsing="false" onAction="#botaoAlterar_Action" prefHeight="25.0" prefWidth="196.0" text="Alterar" />
+				<Button fx:id="botaoExcluir" layoutX="397.0" layoutY="196.0" mnemonicParsing="false" onAction="#botaoExcluir_Action" prefHeight="25.0" prefWidth="196.0" text="Excluir" />
+			</children>
+		</Pane>
+		<TitledPane collapsible="false" prefHeight="156.0" prefWidth="600.0" text="Informações de contato">
+			<content>
+				<GridPane>
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="10.0" prefWidth="338.0" />
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="97.0" />
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="143.0" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<children>
+						<Label text="Nome:" />
+						<Label text="Idade:" GridPane.columnIndex="1" />
+						<Label text="Telefone:" GridPane.columnIndex="2" />
+						<TextField fx:id="txfNome" GridPane.rowIndex="1">
+							<GridPane.margin>
+								<Insets right="5.0" />
+							</GridPane.margin>
+						</TextField>
+						<TextField fx:id="txfIdade" GridPane.columnIndex="1" GridPane.rowIndex="1">
+							<GridPane.margin>
+								<Insets right="5.0" />
+							</GridPane.margin>
+						</TextField>
+						<TextField fx:id="txfTelefone" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+						<Button fx:id="botaoSalvar" mnemonicParsing="false" onAction="#botaoSalvar_Acition" prefHeight="25.0" prefWidth="93.0" text="Salvar" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+						<Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#botaoCancelar_Action" prefHeight="25.0" prefWidth="93.0" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+					</children>
+				</GridPane>
+			</content>
+		</TitledPane>
+	</children>
+</VBox>
